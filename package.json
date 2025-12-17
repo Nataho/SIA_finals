@@ -1,0 +1,23 @@
+{
+  "name": "sia_finals",
+  "version": "1.0.0",
+  "description": "SIA finals project of 1st row of section B",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nataho/SIA_finals.git"
+  },
+  "author": "@Nataho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nataho/SIA_finals/issues"
+  },
+  "homepage": "https://github.com/Nataho/SIA_finals#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0"
+  }
+}
