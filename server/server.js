@@ -77,6 +77,14 @@ server.get("/api/users/:id/devices", (req,res) => {
     })
 })
 
+server.get("/api/logs", (req,res) => {
+    const query = `SELECT * FROM logs`
+    database.query(query, (error,result) => {
+        if (error) res.json(error.message)
+        res.json(result)
+    })
+})
+
 //add new device
 server.post("/api/devices", (req, res) => {
     console.log(req.body)
@@ -89,23 +97,23 @@ server.post("/api/devices", (req, res) => {
 
     const check_query = "SELECT * FROM devices WHERE user_id = ? AND device_name = ?"
     database.query(check_query, [user_id, device_name], (check_error, check_result) => {
-        if (checkError) {
-            return res.status(500).json({ error: checkError.message })
+        if (check_error) {
+            return res.status(500).json({ error: check_error.message })
         }
 
-        if (checkResult.length > 0) { //check duplicate
+        if (check_result.length > 0) { //check duplicate
             return res.status(409).json({ message: "Device name already exists for this user." })
         }
 
         const insert_query = "INSERT INTO devices (user_id, device_name, device_type) VALUES (?,?,?)"
         database.query(insert_query, [user_id, device_name, device_type], (insert_error, insert_result) => {
-            if (insertError) {
-                return res.status(500).json({ error: insertError.message })
+            if (insert_error) {
+                return res.status(500).json({ error: insert_error.message })
             }
             
             res.status(201).json({ 
                 message: "Device created successfully", 
-                deviceId: insertResult.insertId 
+                deviceId: insert_result.insertId 
             })
         })
     })
@@ -121,12 +129,12 @@ server.post("/api/users", (req, res) => {
     }
 
     const check_query = "SELECT * FROM users WHERE username = ? AND password_hash = ?"
-    database.query(check_query, [username, password_hash], (checkError, checkResult) => {
-        if (checkError) {
-            return res.status(500).json({ error: checkError.message })
+    database.query(check_query, [username, password_hash], (check_error, check_result) => {
+        if (check_error) {
+            return res.status(500).json({ error: check_error.message })
         }
 
-        if (checkResult.length > 0) { //check duplicate
+        if (check_result.length > 0) { //check duplicate
             return res.status(409).json({ message: "This user has already created an account" })
         }
         const insert_query = "INSERT INTO users (username, password_hash) VALUES (?,?)"
