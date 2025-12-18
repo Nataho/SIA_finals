@@ -1,0 +1,15 @@
+:root { --bg: #f4f7f6; --primary: #2d3436; --accent: #0984e3; }
+body { font-family: sans-serif; background: var(--bg); margin: 0; }
+
+.app-layout { display: flex; flex-direction: column; min-height: 100vh; }
+nav { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+.dashboard { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; padding: 2rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+
+.card { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.badge { background: #e1f5fe; color: #0288d1; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+.btn-delete { color: #d63031; background: none; border: 1px solid #d63031; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+
+.log-item { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.time { color: #999; font-size: 0.75rem; }

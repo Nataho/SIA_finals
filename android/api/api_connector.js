@@ -118,6 +118,3 @@ async function add_log(device_id, action){
     }
 }
 
-//gets the user with 2 as ID
-const wow = await get_user(2)
-console.log(wow)

@@ -1,0 +1,92 @@
+
+
+// // src/components/layout/Sidebar.jsx
+// import React from "react";
+
+export default function Sidebar({ isOpen, onClose }) {
+  return (
+    <aside
+      style={{
+        ...styles.sidebar,
+        transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+      }}
+    >
+      <ul style={styles.list}>
+        <li>Dashboard</li>
+        <li>Devices</li>
+        <li>Logs</li>
+      </ul>
+    </aside>
+  );
+}
+
+// const styles = {
+//   sidebar: {
+//     position: "fixed",
+//     top: "60px",
+//     left: 0,
+//     width: "220px",
+//     height: "calc(100vh - 60px)",
+//     background: "#f3f4f6",
+//     padding: "20px",
+//     transition: "transform 0.3s ease",
+//     zIndex: 1000,
+//   },
+//   list: {
+//     listStyle: "none",
+//     padding: 0,
+//     margin: 0,
+//   },
+// };
+
+// // src/components/layout/PageContainer.jsx
+// import React from "react";
+
+// export default function PageContainer({ children }) {
+//   return (
+//     <div style={styles.container}>
+//       {children}
+//     </div>
+//   );
+// }
+
+// const styles = {
+//   container: {
+//     flex: 1,
+//     padding: "20px",
+//     background: "#ffffff",
+//     minHeight: "calc(100vh - 60px)",
+//   },
+// };
+
+// // src/components/layout/Layout.jsx
+// import React, { useState } from "react";
+// import Navbar from "./Navbar";
+// import Sidebar from "./Sidebar";
+// import PageContainer from "./PageContainer";
+
+// export default function Layout({ children }) {
+//   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+//   return (
+//     <div>
+//       <Navbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+//       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+//       <PageContainer>{children}</PageContainer>
+//     </div>
+//   );
+// }
+
+
+// // src/App.jsx
+// import React from "react";
+// import Layout from "./components/layout/Layout";
+
+// export default function App() {
+//   return (
+//     <Layout>
+//       <h1>Dashboard</h1>
+//       <p>Welcome to the Smart Home system.</p>
+//     </Layout>
+//   );
+// }
