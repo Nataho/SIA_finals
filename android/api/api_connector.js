@@ -50,7 +50,7 @@ async function add_user(username, password){
         const payload = await res.json()
         console.log(payload)
         if (!res.ok) {
-            // return an object with error info so callers can handle it
+            // return with error on payload
             return { ok: false, status: res.status, error: payload }
         }
 
