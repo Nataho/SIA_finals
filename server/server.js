@@ -127,7 +127,7 @@ server.post("/api/users", (req, res) => {
         }
 
         if (checkResult.length > 0) { //check duplicate
-            return res.status(409).json({ message: "Device name already exists for this user." })
+            return res.status(409).json({ message: "This user has already created an account" })
         }
         const insert_query = "INSERT INTO users (username, password_hash) VALUES (?,?)"
         database.query(insert_query, [username,password_hash], (insert_error,insert_result) => {
