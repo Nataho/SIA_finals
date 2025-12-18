@@ -6,10 +6,13 @@ import {
 // Correct the path based on your folder structure
 import { get_users, add_user } from './api_connector'; 
 
-export default function App() {
+export  default async function App() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState('');
+
+  //bro just use this
+  const user = await get_user(2);
 
   useEffect(() => {
     loadData();
